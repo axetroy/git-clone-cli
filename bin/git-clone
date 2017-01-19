@@ -1,0 +1,133 @@
+#!/usr/bin/env node
+
+// system
+const spawn = require('child_process').spawn;
+const process = require('process');
+const path = require('path');
+
+// 3th
+const program = require('commander');
+const Promise = require('bluebird');
+const GitUrlParse = require("git-url-parse");
+const co = require('co');
+const fs = require('fs-extra');
+
+process.on('uncaughtException', function (err) {
+  process.stderr.write(errToStr(err) + '\n');
+  process.exit(1)
+});
+
+program
+  .version(require('./package.json').version)
+  .description('insert contributor into README.md')
+  .usage('<command> <options>')
+  .parse(process.argv);
+
+function parseRepo(url, callback) {
+  let result = GitUrlParse(url);
+  if (result && Object.keys(result).length > 0) {
+    callback(result);
+  }
+}
+
+function ensureDir(dir) {
+  return new Promise(function (resolve, reject) {
+    fs.ensureDir(dir, function (err) {
+      try {
+        err ? reject(err) : resolve(dir);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  });
+}
+
+function moveDir(fromDir, toDir) {
+  return new Promise(function (resolve, reject) {
+    fs.move(fromDir, toDir, function (err) {
+      try {
+        err ? reject(err) : resolve();
+      } catch (err) {
+        reject(err);
+      }
+    })
+  });
+}
+
+function emptyDir(dir) {
+  return new Promise(function (resolve, reject) {
+    fs.emptyDir(dir, function (err) {
+      err ? reject(err) : resolve();
+    });
+  });
+}
+
+function removeDir(dir) {
+  return new Promise(function (resolve, reject) {
+    fs.remove(dir, function (err) {
+      try {
+        err ? reject(err) : resolve(dir);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  });
+}
+
+function spawnShell(commander, argv, config) {
+  return new Promise(function (resolve, reject) {
+    let data = '';
+    let exec = spawn(commander, argv, config);
+    exec.stdout.on('data', function (chunk) {
+      data += chunk;
+      process.stdout.write(chunk + '');
+    });
+
+    exec.on('error', err=> reject(err));
+
+    exec.on('close', code=> {
+      code === 0 ? resolve(data) : reject();
+    });
+
+  });
+}
+
+function errToStr(err) {
+  return err instanceof Error ? err.stack : err + '';
+}
+
+parseRepo(process.argv[2] || '', function (repo) {
+  if (!repo.owner || !repo.full_name) throw new Error('Invalid repo url: ' + repo.source);
+  const paths = {
+    temp: path.join(process.cwd(), '.git-clone-temp'),
+    ownerDir: path.join(process.cwd(), '@' + repo.owner),
+    dist: path.join(process.cwd(), '@' + repo.owner, repo.name)
+  };
+  co(function *() {
+    // clear cache
+    yield emptyDir(paths.temp);
+
+    // pull repo to temp dir
+    process.stdout.write('clone repo...\n');
+    yield spawnShell('git', ['clone', repo.href], {
+      cwd: paths.temp
+    });
+
+    // ensure the owner dir
+    yield ensureDir(paths.ownerDir);
+
+    // remove repo dir
+    yield removeDir(paths.dist);
+
+    // move repo from temp to dist
+    yield moveDir(path.join(paths.temp, repo.name), path.join(paths.dist));
+
+    // clear temp
+    yield removeDir(paths.temp);
+
+    process.stdout.write('clone done...\n');
+  }).catch(function (err) {
+    process.stderr.write(errToStr(err));
+    process.stderr.write('\n');
+  });
+});

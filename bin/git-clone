@@ -18,7 +18,7 @@ process.on('uncaughtException', function (err) {
 });
 
 program
-  .version(require('./package.json').version)
+  .version(require(path.join(process.cwd(), './package.json')).version)
   .description('insert contributor into README.md')
   .usage('<command> <options>')
   .parse(process.argv);

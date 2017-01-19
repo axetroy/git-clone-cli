@@ -18,8 +18,8 @@ process.on('uncaughtException', function (err) {
 });
 
 program
-  .version(require(path.join(process.cwd(), './package.json')).version)
-  .description('insert contributor into README.md')
+  .version(require(path.join(process.cwd(), '../package.json')).version)
+  .description('a cli tool for pull github repo')
   .usage('<command> <options>')
   .parse(process.argv);
 

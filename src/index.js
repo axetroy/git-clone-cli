@@ -47,8 +47,8 @@ program
   // .option('--recurse-submodules', '在克隆时初始化子模组')
   .option('-j, --jobs <n>', '并发克隆的子模组的数量')
   .option('-c, --config <key=value>', '在新仓库中设置配置信息')
-  .option(' -4, --ipv4', '只使用 IPv4 地址')
-  .option(' -6, --ipv6', '只使用 IPv6 地址')
+  .option('-4, --ipv4', '只使用 IPv4 地址')
+  .option('-6, --ipv6', '只使用 IPv6 地址')
   .usage('<repo> [options]')
   .action(function (repoUrl, command) {
     // console.log(command);

@@ -106,3 +106,9 @@ $ git-clone https://github.com/axetroy/type-up.git
 
 9 directories, 41 files
 ```
+
+### Why we need this?
+
+因为我发现当项目多了之后，很容易搞混乱，参考go的包管理方式，根据作者进行分类。
+
+毕竟我是手痒，到处见好玩的就clone的人:(

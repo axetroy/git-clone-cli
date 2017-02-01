@@ -18,7 +18,7 @@ process.on('uncaughtException', function (err) {
 });
 
 program
-  .version(require('../package.json').version)
+  .version(require(path.resolve('package.json')).version)
   .description('a cli tool for pull github repo')
   .usage('<command> <options>')
   .parse(process.argv);

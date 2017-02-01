@@ -5,7 +5,7 @@
 # Usage
 
 ```bash
-$ npm install @axetroy/git-clone-cli -g
+$ npm install @axetroy/git-clone -g
 
 git-clone <repo> <...arguments>
 ```

@@ -2,6 +2,14 @@
 
 克隆一个项目，一个作者，一个项目目录
 
+# Usage
+
+```bash
+$ npm install @axetroy/git-clone-cli -g
+
+git-clone <repo> <...arguments>
+```
+
 # Example
 
 ```bash
@@ -98,4 +106,3 @@ $ git-clone https://github.com/axetroy/type-up.git
 
 9 directories, 41 files
 ```
-clone repo from github, one owner, one folder

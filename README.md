@@ -10,7 +10,7 @@ npm install @axetroy/git-clone -g
 # Usage
 
 ```bash
-  Usage: index <repo> [options]
+  Usage: git-clone <repo> [options]
 
   a cli tool for pull github repo
 

@@ -5,106 +5,26 @@
 # Usage
 
 ```bash
-$ npm install @axetroy/git-clone -g
+  Usage: index <repo> [options]
 
-git-clone <repo> <...arguments>
-```
+  a cli tool for pull github repo
 
-# Example
+  Options:
 
-```bash
-$ git-clone https://github.com/axetroy/anti-redirect.git
+    -h, --help                output usage information
+    -V, --version             output the version number
+    -v, --verbose             更加详细
+    -q, --quiet               更加安静
+    --progress                更加详细
+    --bare                    创建一个纯仓库
+    --mirror                  创建一个镜像仓库（也是纯仓库）
+    -l, --local               从本地仓库克隆
+    --recursive               在克隆时初始化子模组
+    -j, --jobs <n>            并发克隆的子模组的数量
+    -c, --config <key=value>  在新仓库中设置配置信息
+    -4, --ipv4                只使用 IPv4 地址
+    -6, --ipv6                只使用 IPv6 地址
 
-└── @axetroy
-    └── anti-redirect
-        ├── config.ts
-        ├── dist
-        │   ├── anti-redirect.min.user.js
-        │   ├── anti-redirect.user.js
-        │   ├── report.html
-        │   └── stats.json
-        ├── index.ts
-        ├── lib
-        │   ├── http.ts
-        │   ├── log.ts
-        │   ├── query.ts
-        │   ├── redirect-on-request.ts
-        │   └── redirect-on-url.ts
-        ├── LICENSE
-        ├── package.json
-        ├── README.md
-        ├── src
-        │   ├── baidu.ts
-        │   ├── baidu-video.ts
-        │   ├── google.ts
-        │   ├── sogou.ts
-        │   ├── so.ts
-        │   ├── tieba.ts
-        │   ├── twitter.ts
-        │   ├── weibo.ts
-        │   ├── zhihu-daily.ts
-        │   ├── zhihu.ts
-        │   └── zhihu-zhuanlan.ts
-        ├── tsconfig.json
-        ├── webpack.config.js
-        └── yarn.lock
-
-5 directories, 28 files
-
-$ git-clone https://github.com/axetroy/type-up.git
-
-└── @axetroy
-    ├── anti-redirect
-    │   ├── config.ts
-    │   ├── dist
-    │   │   ├── anti-redirect.min.user.js
-    │   │   ├── anti-redirect.user.js
-    │   │   ├── report.html
-    │   │   └── stats.json
-    │   ├── index.ts
-    │   ├── lib
-    │   │   ├── http.ts
-    │   │   ├── log.ts
-    │   │   ├── query.ts
-    │   │   ├── redirect-on-request.ts
-    │   │   └── redirect-on-url.ts
-    │   ├── LICENSE
-    │   ├── package.json
-    │   ├── README.md
-    │   ├── src
-    │   │   ├── baidu.ts
-    │   │   ├── baidu-video.ts
-    │   │   ├── google.ts
-    │   │   ├── sogou.ts
-    │   │   ├── so.ts
-    │   │   ├── tieba.ts
-    │   │   ├── twitter.ts
-    │   │   ├── weibo.ts
-    │   │   ├── zhihu-daily.ts
-    │   │   ├── zhihu.ts
-    │   │   └── zhihu-zhuanlan.ts
-    │   ├── tsconfig.json
-    │   ├── webpack.config.js
-    │   └── yarn.lock
-    └── type-up
-        ├── dist
-        │   ├── index.dart.js
-        │   ├── index.dart.js.deps
-        │   └── index.dart.js.map
-        ├── gulp
-        │   ├── config.js
-        │   └── script.js
-        ├── gulpfile.js
-        ├── package.json
-        ├── README.md
-        ├── src
-        │   ├── index.dart
-        │   ├── keyBordMaps.dart
-        │   ├── randomcCoordinate.dart
-        │   └── stringToColor.dart
-        └── yarn.lock
-
-9 directories, 41 files
 ```
 
 ### Why we need this?

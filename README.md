@@ -2,6 +2,11 @@
 
 克隆一个项目，一个作者，一个项目目录
 
+# Install
+```bash
+npm install @axetroy/git-clone -g
+```
+
 # Usage
 
 ```bash

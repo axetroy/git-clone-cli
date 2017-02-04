@@ -12,9 +12,12 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "co": "^4.6.0",
+    "colors": "^1.1.2",
     "commander": "^2.9.0",
+    "confirm-simple": "^1.0.3",
     "fs-extra": "^2.0.0",
     "git-url-parse": "^6.2.0",
+    "log-symbols": "^1.0.2",
     "yargs": "^6.6.0"
   }
 }

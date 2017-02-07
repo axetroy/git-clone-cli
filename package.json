@@ -1,6 +1,6 @@
 {
   "name": "@axetroy/git-clone",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "一个cli工具，代替git clone",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

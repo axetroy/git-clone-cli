@@ -15,9 +15,11 @@
     "colors": "^1.1.2",
     "commander": "^2.9.0",
     "confirm-simple": "^1.0.3",
+    "cross-spawn": "^5.0.1",
     "fs-extra": "^2.0.0",
     "git-url-parse": "^6.2.0",
     "log-symbols": "^1.0.2",
+    "ora": "^1.1.0",
     "yargs": "^6.6.0"
   }
 }

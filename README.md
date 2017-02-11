@@ -2,7 +2,8 @@
 
 克隆一个项目，一个作者，一个项目目录
 
-**Maintain** 项目已经不再维护，有更好的 repository Manage [projj](https://github.com/popomore/projj)
+**No longer Maintained** 项目已经不再维护，有更好的 repository Manage [projj](https://github.com/popomore/projj)
+
 # Install
 ```bash
 npm install @axetroy/git-clone -g

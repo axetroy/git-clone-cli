@@ -1,5 +1,7 @@
 # 一个cli工具，代替git clone
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/axetroy/git-clone-cli.svg)](https://greenkeeper.io/)
+
 克隆一个项目，一个作者，一个项目目录
 
 **No longer Maintained** 项目已经不再维护，有更好的 repository Manage, [gpmx](https://github.com/axetroy/gpm) or [projj](https://github.com/popomore/projj)

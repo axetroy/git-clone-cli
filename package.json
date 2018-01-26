@@ -17,7 +17,7 @@
     "confirm-simple": "^1.0.3",
     "cross-spawn": "^6.0.0",
     "fs-extra": "^4.0.3",
-    "git-url-parse": "^7.0.0",
+    "git-url-parse": "^8.0.0",
     "log-symbols": "^1.0.2",
     "ora": "^1.1.0",
     "yargs": "^8.0.1"
